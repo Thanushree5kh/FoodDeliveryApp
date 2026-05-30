@@ -1,56 +1,142 @@
-# Welcome to your Expo app 👋
+# 🍔 Food Delivery App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern Food Delivery Mobile Application built using **React Native**, **Expo Router**, and **TypeScript**. The app allows users to browse restaurants, view menus, add items to cart, place orders, track deliveries, and manage their profile.
 
-## Get started
+## 📱 Features
 
-1. Install dependencies
+### User Authentication
 
-   ```bash
-   npm install
-   ```
+- User Registration
+- User Login
+- Profile Management
+- Edit Profile Details
 
-2. Start the app
+### Restaurant & Menu
 
-   ```bash
-   npx expo start
-   ```
+- Browse Popular Restaurants
+- Restaurant Images
+- Food Menu with Images
+- Add Multiple Items to Cart
 
-In the output, you'll find options to open the app in a
+### Cart & Checkout
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- View Cart Items
+- Quantity Management
+- Order Summary
+- Secure Checkout Flow
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Order Management
 
-## Get a fresh project
+- Order Confirmation
+- Order History
+- Order Success Screen
 
-When you're ready, run:
+### Live Order Tracking
 
-```bash
-npm run reset-project
+- Real-time Order Status Updates
+- Delivery Timeline
+- Delivery Partner Information
+- Estimated Arrival Time
+
+### User Interface
+
+- Modern Food-Themed Design
+- Background Images
+- Responsive Layout
+- Smooth Navigation using Expo Router
+
+---
+
+## 🛠️ Technologies Used
+
+- React Native
+- Expo SDK 56
+- Expo Router
+- TypeScript
+- AsyncStorage
+- React Native Components
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── app/
+│   ├── home.tsx
+│   ├── restaurant.tsx
+│   ├── menu.tsx
+│   ├── cart.tsx
+│   ├── checkout.tsx
+│   ├── payment.tsx
+│   ├── tracking.tsx
+│   ├── profile.tsx
+│   ├── register.tsx
+│   └── order-history.tsx
+│
+├── data/
+│   ├── storage.ts
+│   └── orderStorage.ts
+│
+assets/
+└── images/
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-### Other setup steps
+## 🚀 Installation
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+### Clone Repository
 
-## Learn more
+```bash
+git clone https://github.com/YOUR_USERNAME/FoodDeliveryApp.git
+cd FoodDeliveryApp
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### Install Dependencies
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npm install
+```
 
-## Join the community
+### Run Application
 
-Join our community of developers creating universal apps.
+```bash
+npx expo start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Run on Android Emulator
+
+```bash
+npx expo start --android
+```
+
+---
+
+## 📸 Screens Included
+
+- Login Screen
+- Register Screen
+- Home Screen
+- Restaurant Screen
+- Menu Screen
+- Cart Screen
+- Checkout Screen
+- Payment Screen
+- Order Tracking Screen
+- Profile Screen
+- Order History Screen
+
+---
+
+## 👩‍💻 Developer
+
+**Thanushree K H**
+
+Built as part of a React Native & Expo Mobile Application Project.
+
+---
+
+## 📄 License
+
+This project is developed for educational and learning purposes.
