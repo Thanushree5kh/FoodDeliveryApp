@@ -1,6 +1,7 @@
 import { router, useLocalSearchParams } from "expo-router";
 import { useMemo, useState } from "react";
 import {
+    Image,
     ScrollView,
     StyleSheet,
     Text,
@@ -33,6 +34,22 @@ export default function CartScreen() {
     );
   };
 
+  const getImage = (name: string) => {
+    switch (name.toLowerCase()) {
+      case "pizza":
+        return require("../../assets/images/pizza.jpg");
+
+      case "burger":
+        return require("../../assets/images/burger.jpg");
+
+      case "pasta":
+        return require("../../assets/images/pasta.jpg");
+
+      default:
+        return require("../../assets/images/pizza.jpg");
+    }
+  };
+
   const total = useMemo(() => {
     return cartItems.reduce(
       (sum: number, item: any) => sum + item.price * item.quantity,
@@ -42,20 +59,26 @@ export default function CartScreen() {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Cart</Text>
+      <Text style={styles.title}>🛒 Your Cart</Text>
 
       {cartItems.map((item: any) => (
         <View key={item.id} style={styles.card}>
-          <Text style={styles.itemName}>
-            {item.emoji} {item.name}
-          </Text>
+          <Image source={getImage(item.name)} style={styles.foodImage} />
 
-          <View style={styles.quantityContainer}>
+          <View style={styles.infoSection}>
+            <Text style={styles.itemName}>{item.name}</Text>
+
+            <Text style={styles.subText}>Fresh & Delicious Food</Text>
+
+            <Text style={styles.price}>₹{item.price * item.quantity}</Text>
+          </View>
+
+          <View style={styles.quantitySection}>
             <TouchableOpacity
               style={styles.qtyBtn}
               onPress={() => decreaseQuantity(item.id)}
             >
-              <Text style={styles.qtyText}>-</Text>
+              <Text style={styles.qtyText}>−</Text>
             </TouchableOpacity>
 
             <Text style={styles.quantity}>{item.quantity}</Text>
@@ -67,12 +90,14 @@ export default function CartScreen() {
               <Text style={styles.qtyText}>+</Text>
             </TouchableOpacity>
           </View>
-
-          <Text style={styles.price}>₹{item.price * item.quantity}</Text>
         </View>
       ))}
 
-      <Text style={styles.total}>Total: ₹{total}</Text>
+      <View style={styles.totalCard}>
+        <Text style={styles.totalText}>Total Amount</Text>
+
+        <Text style={styles.totalPrice}>₹{total}</Text>
+      </View>
 
       <TouchableOpacity
         style={styles.button}
@@ -86,7 +111,7 @@ export default function CartScreen() {
           })
         }
       >
-        <Text style={styles.buttonText}>Checkout</Text>
+        <Text style={styles.buttonText}>Proceed To Checkout →</Text>
       </TouchableOpacity>
     </ScrollView>
   );
@@ -95,80 +120,120 @@ export default function CartScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fffaf5",
     padding: 20,
-    backgroundColor: "#fff",
+
+    borderWidth: 3,
+    borderColor: "#ff6600",
+    borderRadius: 20,
+    margin: 10,
   },
 
   title: {
-    fontSize: 30,
+    fontSize: 36,
     fontWeight: "bold",
-    marginBottom: 20,
+    textAlign: "center",
+    color: "#ff6600",
+    marginBottom: 30,
   },
 
   card: {
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderRadius: 20,
     padding: 15,
-    marginBottom: 15,
+    marginBottom: 20,
+
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+
+  foodImage: {
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+  },
+
+  infoSection: {
+    flex: 1,
+    marginLeft: 15,
   },
 
   itemName: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
+    color: "#222",
   },
 
-  quantityContainer: {
+  subText: {
+    color: "#777",
+    marginTop: 4,
+    marginBottom: 8,
+  },
+
+  price: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#ff6600",
+  },
+
+  quantitySection: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 15,
   },
 
   qtyBtn: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
     backgroundColor: "#ff6600",
-    width: 40,
-    height: 40,
-    borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
   },
 
   qtyText: {
     color: "#fff",
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
   },
 
   quantity: {
     fontSize: 20,
-    marginHorizontal: 20,
+    fontWeight: "bold",
+    marginHorizontal: 12,
   },
 
-  price: {
-    fontSize: 18,
-    marginTop: 15,
+  totalCard: {
+    alignItems: "center",
+    marginVertical: 20,
+  },
+
+  totalText: {
+    fontSize: 22,
     fontWeight: "bold",
   },
 
-  total: {
-    fontSize: 28,
+  totalPrice: {
+    fontSize: 34,
     fontWeight: "bold",
-    textAlign: "center",
-    marginTop: 20,
+    color: "#ff6600",
+    marginTop: 8,
   },
 
   button: {
     backgroundColor: "#ff6600",
-    padding: 15,
-    borderRadius: 8,
-    marginTop: 25,
+    padding: 18,
+    borderRadius: 15,
     marginBottom: 30,
   },
 
   buttonText: {
     color: "#fff",
     textAlign: "center",
+    fontSize: 18,
     fontWeight: "bold",
-    fontSize: 16,
   },
 });

@@ -69,29 +69,29 @@ export default function MenuScreen() {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>🍽️ Menu</Text>
+      <Text style={styles.title}>View Our Menu</Text>
 
-      {menuItems.map((item) => {
-        const selected = selectedItems.some((i) => i.id === item.id);
+      <View style={styles.menuRow}>
+        {menuItems.map((item) => {
+          const selected = selectedItems.some((i) => i.id === item.id);
 
-        return (
-          <TouchableOpacity
-            key={item.id}
-            style={[styles.itemCard, selected && styles.selectedCard]}
-            onPress={() => toggleItem(item)}
-          >
-            <Image source={item.image} style={styles.foodImage} />
+          return (
+            <TouchableOpacity
+              key={item.id}
+              style={[styles.menuCard, selected && styles.selectedCard]}
+              onPress={() => toggleItem(item)}
+            >
+              <Image source={item.image} style={styles.foodImage} />
 
-            <View style={styles.infoContainer}>
-              <Text style={styles.itemName}>
-                {selected ? "☑" : "☐"} {item.emoji} {item.name}
-              </Text>
+              <Text style={styles.itemName}>{item.name}</Text>
 
               <Text style={styles.price}>₹{item.price}</Text>
-            </View>
-          </TouchableOpacity>
-        );
-      })}
+
+              <Text style={styles.checkbox}>{selected ? "☑" : "☐"}</Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
 
       <Text style={styles.selected}>
         Selected Items: {selectedItems.length}
@@ -107,70 +107,91 @@ export default function MenuScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#fffefd",
+    padding: 100,
+
+    borderWidth: 7,
+    borderColor: "#ff6600",
+    borderRadius: 30,
+
+    margin: 40,
   },
 
   title: {
-    fontSize: 30,
+    fontSize: 42,
     fontWeight: "bold",
-    marginBottom: 20,
+    textAlign: "center",
+    marginBottom: 40,
+    color: "#111",
+    fontFamily: "Snell",
+    fontStyle: "italic",
   },
 
-  itemCard: {
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 12,
-    overflow: "hidden",
-    marginBottom: 15,
-    backgroundColor: "#fff",
+  menuRow: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    flexWrap: "wrap",
+  },
+
+  menuCard: {
+    alignItems: "center",
+    width: 250,
+    marginBottom: 30,
   },
 
   selectedCard: {
-    borderColor: "#ff6600",
-    borderWidth: 2,
     backgroundColor: "#fff5eb",
+    borderRadius: 20,
+    padding: 10,
   },
 
   foodImage: {
-    width: "100%",
-    height: 320,
-  },
-
-  infoContainer: {
-    padding: 15,
+    width: 190,
+    height: 190,
+    borderRadius: 30,
+    marginBottom: 15,
   },
 
   itemName: {
     fontSize: 20,
     fontWeight: "bold",
+    marginTop: 10,
+    textAlign: "center",
   },
 
   price: {
-    marginTop: 5,
     fontSize: 18,
     color: "#666",
+    marginTop: 5,
+    marginBottom: 10,
+  },
+
+  checkbox: {
+    fontSize: 32,
+    color: "#ff6600",
   },
 
   selected: {
-    marginTop: 15,
-    fontSize: 18,
+    marginTop: 20,
+    fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
   },
 
   button: {
     backgroundColor: "#ff6600",
-    padding: 15,
-    borderRadius: 8,
+    padding: 16,
+    borderRadius: 12,
     marginTop: 25,
     marginBottom: 30,
+    alignSelf: "center",
+    width: 250,
   },
 
   buttonText: {
     color: "#fff",
     textAlign: "center",
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 18,
   },
 });

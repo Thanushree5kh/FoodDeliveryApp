@@ -156,6 +156,7 @@ const styles = StyleSheet.create({
     padding: 14,
     marginBottom: 15,
     borderRadius: 10,
+    color: "white",
   },
 
   addressInput: {

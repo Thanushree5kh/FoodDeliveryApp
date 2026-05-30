@@ -139,108 +139,144 @@ export default function CheckoutScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#f8f8f8",
+    padding: 25,
+
+    borderWidth: 3,
+    borderColor: "#ff6600",
+    borderRadius: 20,
+    margin: 10,
   },
 
   title: {
-    fontSize: 30,
+    fontSize: 42,
     fontWeight: "bold",
-    marginBottom: 20,
+    textAlign: "center",
+    color: "#ff6600",
+    marginBottom: 30,
   },
 
   label: {
     fontSize: 16,
-    fontWeight: "bold",
-    marginTop: 10,
-    marginBottom: 5,
+    fontWeight: "700",
+    color: "#333",
+    marginBottom: 8,
+    marginTop: 15,
   },
 
   input: {
+    backgroundColor: "#fff",
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    padding: 12,
+    borderColor: "#eee",
+    borderRadius: 15,
+    padding: 15,
     marginBottom: 15,
+
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
   },
 
   sectionTitle: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: "bold",
-    marginTop: 15,
-    marginBottom: 10,
+    color: "#222",
+    marginTop: 25,
+    marginBottom: 15,
   },
 
   orderCard: {
     flexDirection: "row",
     justifyContent: "space-between",
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 10,
+    alignItems: "center",
+
+    backgroundColor: "#fff",
+    padding: 18,
+
+    borderRadius: 18,
+    marginBottom: 12,
+
+    shadowColor: "#000",
+    shadowOpacity: 0.06,
+    shadowRadius: 6,
+    elevation: 3,
   },
 
   couponButton: {
-    backgroundColor: "#4CAF50",
+    backgroundColor: "#ff6600",
     padding: 15,
-    borderRadius: 8,
-    marginBottom: 15,
+    borderRadius: 15,
+    marginTop: 5,
+    marginBottom: 20,
   },
 
   total: {
     fontSize: 22,
     fontWeight: "bold",
-    textAlign: "center",
-    marginTop: 10,
+    color: "#222",
+    marginTop: 15,
   },
 
   discount: {
     fontSize: 18,
-    textAlign: "center",
-    color: "green",
+    color: "#27ae60",
     marginTop: 10,
   },
 
   finalAmount: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: "bold",
-    textAlign: "center",
     color: "#ff6600",
     marginTop: 10,
   },
 
   deliveryBox: {
-    borderWidth: 1,
+    backgroundColor: "#fff7f0",
+
+    borderWidth: 2,
     borderColor: "#ff6600",
-    borderRadius: 10,
-    padding: 15,
-    marginTop: 20,
+
+    borderRadius: 18,
+    padding: 20,
+
+    marginTop: 25,
+    marginBottom: 20,
   },
 
   deliveryText: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
+    color: "#333",
   },
 
   deliveryTime: {
-    fontSize: 20,
+    fontSize: 24,
+    fontWeight: "bold",
     color: "#ff6600",
-    marginTop: 5,
+    marginTop: 8,
   },
 
   button: {
     backgroundColor: "#ff6600",
-    padding: 15,
-    borderRadius: 8,
+
+    paddingVertical: 18,
+
+    borderRadius: 18,
+
     marginTop: 25,
-    marginBottom: 30,
+    marginBottom: 40,
+
+    shadowColor: "#ff6600",
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 5,
   },
 
   buttonText: {
     color: "#fff",
     textAlign: "center",
+    fontSize: 18,
     fontWeight: "bold",
-    fontSize: 16,
   },
 });

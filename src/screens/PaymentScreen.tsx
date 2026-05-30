@@ -56,10 +56,6 @@ export default function PaymentScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Payment</Text>
 
-      <Text style={styles.subtitle}>Demo Payment Gateway</Text>
-
-      <Text style={styles.note}>(No real transaction is performed)</Text>
-
       <TouchableOpacity
         style={[styles.option, paymentMethod === "UPI" && styles.selected]}
         onPress={() => setPaymentMethod("UPI")}
@@ -146,77 +142,118 @@ export default function PaymentScreen() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#f8f8f8",
+    padding: 25,
+
+    borderWidth: 3,
+    borderColor: "#ff6600",
+    borderRadius: 10,
+    margin: 50,
   },
 
   title: {
-    fontSize: 30,
+    fontSize: 38,
     fontWeight: "bold",
     textAlign: "center",
-    marginBottom: 10,
+    color: "#c0392b",
+    marginBottom: 8,
   },
 
   subtitle: {
     textAlign: "center",
+    fontSize: 18,
     fontWeight: "bold",
+    color: "#333",
   },
 
   note: {
     textAlign: "center",
-    color: "gray",
-    marginBottom: 20,
+    color: "#888",
+    marginBottom: 25,
+    fontSize: 14,
   },
 
   option: {
+    backgroundColor: "#fff",
+    padding: 18,
+    borderRadius: 15,
+
+    marginBottom: 15,
+
     borderWidth: 1,
-    borderColor: "#ccc",
-    padding: 15,
-    borderRadius: 8,
-    marginBottom: 10,
+    borderColor: "#eee",
+
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    elevation: 3,
   },
 
   selected: {
+    backgroundColor: "#fff4ec",
     borderColor: "#ff6600",
     borderWidth: 2,
   },
 
   input: {
+    backgroundColor: "#fff",
+
     borderWidth: 1,
-    borderColor: "#ccc",
-    padding: 12,
-    borderRadius: 8,
-    marginTop: 10,
+    borderColor: "#eee",
+
+    padding: 15,
+    borderRadius: 15,
+
+    marginTop: 12,
+
+    shadowColor: "#000",
+    shadowOpacity: 0.04,
+    shadowRadius: 4,
+    elevation: 2,
   },
 
   amount: {
-    marginTop: 15,
-    fontSize: 18,
+    fontSize: 30,
     fontWeight: "bold",
+    textAlign: "center",
+    color: "#ff6600",
+    marginTop: 20,
   },
 
   codBox: {
-    padding: 15,
-    backgroundColor: "#f5f5f5",
-    borderRadius: 8,
-    marginTop: 15,
+    backgroundColor: "#fff7f0",
+
+    borderWidth: 2,
+    borderColor: "#ff6600",
+
+    padding: 20,
+    borderRadius: 15,
+
+    marginTop: 20,
   },
 
   button: {
     backgroundColor: "#ff6600",
-    padding: 15,
-    borderRadius: 8,
-    marginTop: 25,
+
+    paddingVertical: 18,
+
+    borderRadius: 18,
+
+    marginTop: 30,
+
+    shadowColor: "#ff6600",
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 5,
   },
 
   buttonText: {
     color: "#fff",
     textAlign: "center",
+    fontSize: 18,
     fontWeight: "bold",
-    fontSize: 16,
   },
 });

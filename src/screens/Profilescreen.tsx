@@ -28,7 +28,19 @@ export default function ProfileScreen() {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>👤 My Profile</Text>
+      <View style={styles.profileHeader}>
+        <View style={styles.avatar}>
+          <Text style={styles.avatarText}>
+            {user?.name?.charAt(0)?.toUpperCase() || "U"}
+          </Text>
+        </View>
+
+        <Text style={styles.userName}>{user?.name || "User"}</Text>
+
+        <Text style={styles.userEmail}>
+          {user?.email || "email@example.com"}
+        </Text>
+      </View>
 
       <View style={styles.card}>
         <Text style={styles.label}>Full Name</Text>
@@ -103,89 +115,171 @@ export default function ProfileScreen() {
     </ScrollView>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#f7f7f7",
     padding: 20,
-    backgroundColor: "#fff",
+
+    borderWidth: 3,
+    borderColor: "#ff6600",
+    borderRadius: 10,
+    margin: 50,
   },
 
   title: {
-    fontSize: 30,
+    fontSize: 32,
     fontWeight: "bold",
+    textAlign: "center",
+    color: "#ff6600",
     marginBottom: 20,
   },
 
+  profileHeader: {
+    alignItems: "center",
+    marginBottom: 25,
+  },
+
+  avatar: {
+    width: 110,
+    height: 110,
+    borderRadius: 55,
+    backgroundColor: "#ff6600",
+
+    justifyContent: "center",
+    alignItems: "center",
+
+    shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+
+  avatarText: {
+    color: "#fff",
+    fontSize: 42,
+    fontWeight: "bold",
+  },
+
+  userName: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginTop: 12,
+    color: "#222",
+  },
+
+  userEmail: {
+    color: "#777",
+    fontSize: 15,
+    marginTop: 5,
+  },
+
   card: {
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 10,
-    padding: 15,
-    marginBottom: 20,
+    backgroundColor: "#fff",
+
+    borderRadius: 20,
+    padding: 20,
+
+    marginBottom: 25,
+
+    borderWidth: 2,
+    borderColor: "#ff6600",
+
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 4,
   },
 
   label: {
     fontWeight: "bold",
-    marginTop: 12,
     fontSize: 16,
+    color: "#ff6600",
+    marginTop: 15,
   },
 
   value: {
     fontSize: 16,
-    color: "#444",
+    color: "#333",
+    marginTop: 5,
   },
 
   sectionTitle: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: "bold",
+    color: "#ff6600",
     marginBottom: 15,
   },
 
   noOrders: {
+    textAlign: "center",
+    color: "#888",
     fontSize: 16,
-    color: "gray",
   },
 
   orderCard: {
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 10,
-    padding: 15,
-    marginBottom: 10,
+    backgroundColor: "#fff",
+
+    borderRadius: 20,
+    padding: 18,
+
+    marginBottom: 15,
+
+    borderWidth: 2,
+    borderColor: "#ff6600",
+
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 4,
   },
 
   orderTitle: {
+    fontSize: 18,
     fontWeight: "bold",
-    fontSize: 16,
+    color: "#ff6600",
     marginBottom: 10,
   },
 
   itemsTitle: {
-    marginTop: 10,
+    marginTop: 12,
     fontWeight: "bold",
-    marginBottom: 5,
+    color: "#ff6600",
+    fontSize: 16,
+    marginBottom: 6,
   },
 
   button: {
     backgroundColor: "#ff6600",
-    padding: 15,
-    borderRadius: 8,
-    marginTop: 20,
+    padding: 16,
+    borderRadius: 15,
+
+    marginTop: 15,
+
+    shadowColor: "#ff6600",
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 5,
   },
 
   logoutButton: {
     backgroundColor: "#e53935",
-    padding: 15,
-    borderRadius: 8,
-    marginTop: 10,
-    marginBottom: 30,
+    padding: 16,
+    borderRadius: 15,
+
+    marginTop: 12,
+    marginBottom: 35,
+
+    shadowColor: "#e53935",
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 5,
   },
 
   buttonText: {
     color: "#fff",
     textAlign: "center",
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 17,
   },
 });

@@ -36,15 +36,28 @@ export default function TrackingScreen() {
       <Text style={styles.title}>📍 Live Order Tracking</Text>
       {/* Fake Map */}
       <View style={styles.mapContainer}>
-        <Text style={styles.mapTitle}>🗺️ Delivery Route</Text>
+        <Text style={styles.mapTitle}>Live Route</Text>
 
-        <Text style={styles.route}>🍽️ Restaurant</Text>
-        <Text style={styles.line}>⬇️</Text>
+        <View style={styles.routeContainer}>
+          <View style={styles.pointRow}>
+            <View style={styles.pointOrange} />
+            <Text style={styles.route}>Restaurant</Text>
+          </View>
 
-        <Text style={styles.route}>🛵 Delivery Partner</Text>
-        <Text style={styles.line}>⬇️</Text>
+          <View style={styles.verticalLine} />
 
-        <Text style={styles.route}>🏠 Your Location</Text>
+          <View style={styles.pointRow}>
+            <View style={styles.pointOrange} />
+            <Text style={styles.route}>Delivery Partner</Text>
+          </View>
+
+          <View style={styles.verticalLine} />
+
+          <View style={styles.pointRow}>
+            <View style={styles.pointGreen} />
+            <Text style={styles.route}>Your Location</Text>
+          </View>
+        </View>
       </View>
 
       {/* ETA */}
@@ -92,57 +105,99 @@ export default function TrackingScreen() {
     </ScrollView>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     padding: 20,
     flexGrow: 1,
-    backgroundColor: "rgba(0,0,0,0.15)",
+    backgroundColor: "#ffffff",
+
+    borderWidth: 3,
+    borderColor: "#ff6600",
+    margin: 300,
+    borderRadius: 10,
   },
 
   title: {
-    fontSize: 34,
+    fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
+    color: "#ff6600",
     marginBottom: 25,
-    color: "#ffffff",
-    textShadowColor: "#000",
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 5,
+  },
+
+  routeContainer: {
+    width: "100%",
+    marginTop: 10,
+  },
+
+  pointRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  pointOrange: {
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    backgroundColor: "#ff6600",
+    marginRight: 12,
+  },
+
+  pointGreen: {
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    backgroundColor: "#128e09",
+    marginRight: 12,
+  },
+
+  verticalLine: {
+    width: 3,
+    height: 40,
+    backgroundColor: "#ff6600",
+    marginLeft: 7,
+    marginVertical: 5,
   },
   mapContainer: {
-    backgroundColor: "rgba(255, 255, 255, 0)",
-    borderRadius: 20,
+    backgroundColor: "#ffffff",
+    borderRadius: 25,
     padding: 25,
     marginBottom: 20,
-    alignItems: "center",
-
-    borderWidth: 1,
-    borderColor: "rgba(255, 255, 255, 0)",
+    borderWidth: 2,
+    borderColor: "#ff6600",
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    elevation: 5,
   },
 
   mapTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
     marginBottom: 15,
+    color: "#000",
   },
 
   route: {
-    fontSize: 16,
+    fontSize: 18,
+    color: "#000",
+    fontWeight: "600",
   },
 
   line: {
     fontSize: 24,
     color: "#ff6600",
+    marginVertical: 5,
   },
 
   etaBox: {
-    backgroundColor: "rgba(255,102,0,0.15)",
+    backgroundColor: "#ffffff",
+
     borderRadius: 20,
     padding: 18,
     marginBottom: 20,
 
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: "#ff6600",
   },
 
@@ -154,12 +209,13 @@ const styles = StyleSheet.create({
   },
 
   timeline: {
-    backgroundColor: "rgba(255,255,255,0.15)",
+    backgroundColor: "#ffffff",
+
     borderRadius: 20,
     padding: 20,
 
-    borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.25)",
+    borderWidth: 2,
+    borderColor: "#ff6600",
   },
 
   stageRow: {
@@ -168,49 +224,61 @@ const styles = StyleSheet.create({
 
   stageText: {
     fontSize: 20,
-    color: "#ffffff99",
+    color: "#000000",
   },
 
   activeStage: {
     color: "#128e09",
     fontWeight: "bold",
     fontSize: 22,
+    backgroundColor: "#e8f8e8",
+    padding: 8,
+    borderRadius: 10,
   },
+
   riderCard: {
-    backgroundColor: "rgba(255,255,255,0.15)",
-    borderRadius: 20,
+    backgroundColor: "#ffffff",
+    borderRadius: 25,
     padding: 20,
     marginTop: 20,
-
-    borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.25)",
+    borderWidth: 2,
+    borderColor: "#ff6600",
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    elevation: 5,
   },
 
   riderTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 10,
+    marginBottom: 12,
+    color: "#000",
   },
 
   riderText: {
     fontSize: 16,
-    marginBottom: 5,
+    marginBottom: 8,
+    color: "#000",
   },
-
   restaurantCard: {
-    backgroundColor: "rgba(255,255,255,0.15)",
-    borderRadius: 20,
+    backgroundColor: "#ffffff",
+    borderRadius: 25,
     padding: 20,
     marginTop: 20,
     marginBottom: 30,
-
-    borderWidth: 1,
-    borderColor: "rgba(255, 255, 255, 0)",
+    borderWidth: 2,
+    borderColor: "#ff6600",
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    elevation: 5,
   },
 
   restaurantTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 10,
+    marginBottom: 12,
+    color: "#000",
   },
 });

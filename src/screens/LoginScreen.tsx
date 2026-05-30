@@ -114,12 +114,13 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    backgroundColor: "#ffffff11",
+    backgroundColor: "#ffffff13",
     borderWidth: 1,
-    borderColor: "#dddddd09",
+    borderColor: "#dddddd08",
     padding: 12,
     marginBottom: 15,
     borderRadius: 8,
+    color: "white",
   },
 
   button: {
